@@ -3,6 +3,7 @@ docker-compose up -d
 
 # container connect
 docker exec -it rails bash
+
 docker exec -it mysql bash
 
 # remove
