@@ -1,0 +1,24 @@
+version: '3'
+services:
+  rails:
+    build: ./docker/rails
+    container_name: 'rails'
+    tty: true
+    ports:
+      - "80:3000"
+    env_file:
+      - ./docker/mysql/.env
+    volumes:
+      - ./app-data:/usr/src/app
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:5.7.25
+    container_name: 'mysql'
+    env_file:
+      - ./docker/mysql/.env
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./mysql-data:/var/lib/mysql
