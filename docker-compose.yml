@@ -7,9 +7,9 @@ services:
     ports:
       - "80:3000"
     env_file:
-      - ./docker/mysql/.env
+      - ./env/mysql.env
     volumes:
-      - ./app-data:/usr/src/app
+      - ./app-data:/usr/local/src/app
     depends_on:
       - mysql
 
@@ -17,7 +17,7 @@ services:
     image: mysql:5.7.25
     container_name: 'mysql'
     env_file:
-      - ./docker/mysql/.env
+      - ./env/mysql.env
     ports:
       - '3306:3306'
     volumes:
